@@ -16,7 +16,14 @@ export default class Users extends Component {
     *
     */
     state = {
-        users: []
+        users: [],
+        isNewFormShowing: false,
+        newUser: {
+            name: "",
+            userName: "",
+            password: "",
+            city: ""
+        }
     }
 
     /* Step 4
@@ -27,10 +34,21 @@ export default class Users extends Component {
     *   -REMINDER remember `setState` it is an async function
     */
     componentDidMount() {
+        this.getAllUsers()
+    }
+    
+    getAllUsers = () => {
         axios.get('/api/users')
             .then((res) => {
                 this.setState({users: res.data})
             })
+
+    }
+
+    handleInputChange = (event) => {
+        const copiedNewUser = {...this.state.newUser}
+        copiedNewUser[event.target.name] = event.target.value
+        this.setState({newUser: copiedNewUser})
     }
 
     /* Step 5
@@ -52,6 +70,44 @@ export default class Users extends Component {
             )
         })
         return (
+            this.state.isNewFormShowing
+            ?
+            <form>
+                <label htmlFor="new-user-name">User Name</label>
+                <input 
+                    type="text" 
+                    id="new-user-name" 
+                    name="name"
+                    onChange={this.handleInputChange}
+                    value={this.state.newUser.name}
+                />
+                <label htmlFor="new-user-username">Username</label>
+                <input 
+                    type="text" 
+                    id="new-user-username"
+                    name="userName"
+                    onChange={this.handleInputChange}
+                    value={this.state.newUser.userName}
+                />
+                <label htmlFor="new-user-password">Password</label>
+                <input 
+                    type="text" 
+                    id="new-user-password" 
+                    name="password" 
+                    onChange={this.handleInputChange}
+                    value={this.state.newUser.password}
+                />
+                <label htmlFor="new-user-city">City</label>
+                <input 
+                    type="text" 
+                    id="new-user-city" 
+                    name="city" 
+                    onChange={this.handleInputChange}
+                    value={this.state.newUser.city}
+                />
+                <input type="submit" value="Add User" />
+            </form>
+            :
             <div>
                 {/* Accessing the value of message from the state object */}
                 <h1>All Users</h1>
