@@ -42,7 +42,6 @@ export default class Users extends Component {
             .then((res) => {
                 this.setState({users: res.data})
             })
-
     }
 
     handleInputChange = (event) => {
@@ -51,6 +50,22 @@ export default class Users extends Component {
         this.setState({newUser: copiedNewUser})
     }
 
+    handleNewUserSubmit = (event) => {
+        event.preventDefault()
+        axios.post('/api/users', this.state.newUser)
+        .then(() => {
+            this.setState({
+                isNewFormShowing: false
+            })
+            this.getAllUsers()
+        })
+    }
+
+    handleToggledNewForm = () => {
+        this.setState((state) => {
+            return {isNewFormShowing: !state.isNewFormShowing}
+        })
+    }
     /* Step 5
     *  The render function manages what is shown in the browser
     *  TODO: delete the jsx returned
@@ -72,7 +87,7 @@ export default class Users extends Component {
         return (
             this.state.isNewFormShowing
             ?
-            <form>
+            <form onSubmit={this.handleNewUserSubmit}>
                 <label htmlFor="new-user-name">User Name</label>
                 <input 
                     type="text" 
@@ -112,6 +127,7 @@ export default class Users extends Component {
                 {/* Accessing the value of message from the state object */}
                 <h1>All Users</h1>
                 {usersList}
+                <button onClick={this.handleToggledNewForm}>Create New User</button>
             </div>
         )
     }
