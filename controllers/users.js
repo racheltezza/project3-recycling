@@ -43,6 +43,26 @@ userRouter.get('/', (req, res) => {
   })
 })
 
+userRouter.get('/:userId', (req, res) => {
+  userApi.getUser(req.params.userId)
+  .then((user) => {
+    res.json(user)
+  })
+})
+
+userRouter.post('/', (req, res) => {
+  userApi.createUser(req.body)
+  .then((newUser) => {
+    res.json(newUser)
+  })
+})
+
+userRouter.delete('/:userId', (req, res) => {
+  userApi.deleteUser(req.params.userId)
+  .then(() => {
+    res.send('user deleted')
+  })
+})
 /* Step 6
  *
  * Export the router from the file.

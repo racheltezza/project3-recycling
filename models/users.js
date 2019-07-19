@@ -42,11 +42,26 @@ function getAllUsers() {
   return UserCollection.find()
 }
 
+function getUser(userId) {
+  return UserCollection.findById(userId)
+}
+
+function createUser(newUser) {
+  return UserCollection.create(newUser)
+}
+
+function deleteUser(userId) {
+  return UserCollection.findByIdAndDelete(userId)
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
  * object
  */
 module.exports = {
-  getAllUsers
+  getAllUsers,
+  getUser,
+  createUser,
+  deleteUser
 }
