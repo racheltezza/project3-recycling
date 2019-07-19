@@ -35,6 +35,12 @@ export default class SingleCreature extends Component {
             })
     }
 
+    handleInputChange = (event) => {
+        const copiedUser = {...this.state.user}
+        copiedUser[event.target.name] = event.target.value
+        this.setState({user: copiedUser})
+    }
+
     
 
     /* Step 5
