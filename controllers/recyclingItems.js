@@ -43,6 +43,20 @@ recyclingItemRouter.get('/', (req, res) => {
   })
 })
 
+recyclingItemRouter.get('/:itemId', (req, res) => {
+  recyclingItemApi.getRecyclingItem(req.params.itemId)
+  .then((item) => {
+    res.json(item)
+  })
+})
+
+recyclingItemRouter.post('/', (req, res) => {
+  recyclingItemApi.createRecyclingItem(req.body)
+  .then((newItem) => {
+    res.json(newItem)
+  })
+})
+
 
 /* Step 6
  *
