@@ -44,15 +44,15 @@ userRouter.get('/', (req, res) => {
   })
 })
 
-userRouter.get('/:userId/recyclingItems', (req, res) => {
-  userApi.getUser(req.params.userId)
-  .then((user) => {
-    recyclingItemApi.getRecyclingItemsByUserId(user._id)
-    .then((items) => {
-      res.json(user, items)
-    })
-  })
-})
+// userRouter.get('/:userId/recyclingItems', (req, res) => {
+//   userApi.getUser(req.params.userId)
+//   .then((user) => {
+//     recyclingItemApi.getRecyclingItemsByUserId(user._id)
+//     .then((items) => {
+//       res.json(user, items)
+//     })
+//   })
+// })
 
 userRouter.get('/:userId', (req, res) => {
   userApi.getUser(req.params.userId)

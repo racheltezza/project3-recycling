@@ -37,10 +37,10 @@ const recyclingItemRouter = express.Router({mergeParams: true})
  * TODO: delete this handler; it's just a sample
  */ 
 recyclingItemRouter.get('/', (req, res) => {
-  recyclingItemApi.getAllRecyclingItems()
-  .then((items) => {
-    res.json(items)
-  })
+  recyclingItemApi.getRecyclingItemsByUserId(req.params.userId)
+    .then((items) => {
+      res.json(items)
+    })
 })
 
 
