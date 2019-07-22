@@ -9,7 +9,7 @@ import {Redirect, Link} from 'react-router-dom'
  * Rename this class to reflect the component being created
  *
  */
-export default class SingleCreature extends Component {
+export default class SingleUser extends Component {
 
     /* Step 3
     * Create a state for the component to store view data
@@ -58,6 +58,13 @@ export default class SingleCreature extends Component {
         })
     }
 
+    handleDeleteUser = () => {
+        axios.delete(`/api/users/${this.state.user._id}`)
+        .then(() => {
+            this.setState({redirectToHome: true})
+        })
+    }
+
     
 
     /* Step 5
@@ -67,6 +74,9 @@ export default class SingleCreature extends Component {
     *
     */
     render() {
+        if(this.state.redirectToHome) {
+            return <Redirect to="/" />
+        }
         return (
             this.state.isEditFormShowing
             ?
@@ -116,6 +126,7 @@ export default class SingleCreature extends Component {
                 <p>Password: {this.state.user.password}</p>
                 <p>City: {this.state.user.city}</p>
                 <button onClick={this.handleToggledEditForm}>Edit User</button>
+                <button onClick={this.handleDeleteUser}>Delete User</button>
             </div>
         )
     }
