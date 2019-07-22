@@ -74,7 +74,7 @@ export default class SingleRecyclingItem extends Component {
     */
     render() {
         if(this.state.redirectToList) {
-            return <Redirect to="/users/:userId/recyclingItems" />
+            return <Redirect to={`/users/${this.props.match.params.userId}/recyclingItems`} />
         }
         return (
             this.state.isEditFormShowing
