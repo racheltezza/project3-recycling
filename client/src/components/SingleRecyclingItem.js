@@ -88,7 +88,40 @@ export default class SingleRecyclingItem extends Component {
                         onChange={this.handleInputChange} 
                         value={this.state.recyclingItem.name}
                     />
-                <label htmlFor="item-type">Item Type</label>
+
+                <div className="form-group">
+                    <label htmlFor="item-type" className="form-label">Item Type</label>
+                        <select 
+                            className="custom-select" 
+                            name="type" 
+                            id="item-type"
+                            onChange={this.handleInputChange} 
+                            value={this.state.recyclingItem.type}
+                        >
+                            <option>Type</option>
+                            <option>Paper</option>
+                            <option>Cardboard</option>
+                            <option>Glass</option>
+                            <option>Plastic</option>
+                        </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="item-points" className="form-label">Item Points</label>
+                        <select 
+                            className="custom-select" 
+                            name="points" 
+                            id="item-points"
+                            onChange={this.handleInputChange} 
+                            value={this.state.recyclingItem.points}
+                        >
+                            <option>Points</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                {/* <label htmlFor="item-type">Item Type</label>
                     <input 
                         type="text" 
                         id="item-type" 
@@ -103,7 +136,7 @@ export default class SingleRecyclingItem extends Component {
                         name="points" 
                         onChange={this.handleInputChange} 
                         value={this.state.recyclingItem.points}
-                    />
+                    /> */}
                 <input type="submit" value="Update Item" />
 
             </form>
