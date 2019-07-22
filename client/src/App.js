@@ -4,6 +4,7 @@ import Users from './components/Users.js'
 import './App.css';
 import SingleUser from './components/SingleUser'
 import RecyclingItems from './components/RecyclingItems'
+import SingleRecyclingItem from './components/SingleRecyclingItem.js';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Users}/>
+          <Route path="/users/:userId/recyclingItems/:itemId" component={SingleRecyclingItem} />
           <Route path="/users/:userId/recyclingItems" component={RecyclingItems} />
           <Route path="/users/:userId" component={SingleUser} />
         </Switch>

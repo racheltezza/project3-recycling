@@ -60,6 +60,12 @@ export default class RecyclingItems extends Component {
             this.getAllItems()
         })
     }
+
+    handleToggledNewForm = () => {
+        this.setState((state) => {
+            return {isNewFormShowing: !state.isNewFormShowing}
+        })
+    }
     
 
     /* Step 5
@@ -115,6 +121,7 @@ export default class RecyclingItems extends Component {
                 {/* <h1>{this.state.recyclingItems}</h1> */}
                 <p>Recycling Items</p>
                 {recyclingItemsList}
+                <button onClick={this.handleToggledNewForm}>Add Item to List</button>
             </div>
         )
     }
