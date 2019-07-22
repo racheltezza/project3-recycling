@@ -64,6 +64,12 @@ recyclingItemRouter.delete('/:itemId', (req, res) => {
   })
 })
 
+recyclingItemRouter.put('/:itemId', (req, res) => {
+  recyclingItemApi.editRecyclingItem(req.params.itemId, req.body)
+  .then((updatedItem) =>{
+    res.json(updatedItem)
+  })
+})
 
 /* Step 6
  *
