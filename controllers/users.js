@@ -16,6 +16,7 @@ const express = require('express')
  * 
  */
 const userApi = require('../models/users.js')
+const recyclingItemApi = require('../models/recyclingItems.js')
 
 /* Step 3 
  * 
@@ -40,6 +41,16 @@ userRouter.get('/', (req, res) => {
   userApi.getAllUsers()
   .then((users) =>  {
     res.json(users)
+  })
+})
+
+userRouter.get('/:userId/recyclingItems', (req, res) => {
+  userApi.getUser(req.params.userId)
+  .then((user) => {
+    recyclingItemApi.getRecyclingItemsByUserId(user._id)
+    .then((items) => {
+      res.json(user, items)
+    })
   })
 })
 

@@ -21,7 +21,8 @@ const mongoose = require('./connection.js')
 const RecyclingItemSchema = new mongoose.Schema({
  name: String,
  type: String,
- points: { type: Number, min: 1, max: 3 }
+ points: { type: Number, min: 1, max: 3 },
+ userId: mongoose.Types.ObjectId
 })
 
 /* Step 3
@@ -57,6 +58,10 @@ function deleteRecyclingItem(itemId) {
   return RecyclingItemCollection.findByIdAndDelete(itemId)
 }
 
+function getRecyclingItemsByUserId(userId) {
+  return RecyclingItemCollection.find({userId: userId})
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
@@ -67,5 +72,6 @@ module.exports = {
   getRecyclingItem,
   createRecyclingItem,
   editRecyclingItem,
-  deleteRecyclingItem
+  deleteRecyclingItem,
+  getRecyclingItemsByUserId
 }

@@ -110,6 +110,7 @@ export default class SingleRecyclingItem extends Component {
             :
             <div>
                 {/* Accessing the value of message from the state object */}
+                <a href="#">Back to Recycling List</a>
                 <h1>Single Item</h1>
                 {this.state.recyclingItem.name}
                 <button onClick={this.handleToggledEditForm}>Update This Item</button>

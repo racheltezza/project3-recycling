@@ -78,7 +78,7 @@ export default class Users extends Component {
             <Link 
                 to="/"
                 key={user._id} 
-                to={`/users/${user._id}`}
+                to={`/users/${user._id}/recyclingItems`}
             >
                 {user.name}
             </Link>

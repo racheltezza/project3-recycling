@@ -122,7 +122,7 @@ export default class RecyclingItems extends Component {
             <div>
                 {/* Accessing the value of message from the state object */}
                 {/* <h1>{this.state.recyclingItems}</h1> */}
-                <p>Recycling Items</p>
+                <h1>Recycling Items</h1>
                 {recyclingItemsList}
                 <button onClick={this.handleToggledNewForm}>Add Item to List</button>
             </div>

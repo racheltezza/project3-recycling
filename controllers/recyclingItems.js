@@ -25,7 +25,7 @@ const recyclingItemApi = require('../models/recyclingItems.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const recyclingItemRouter = express.Router()
+const recyclingItemRouter = express.Router({mergeParams: true})
 
 /* Step 4
  * 
@@ -43,6 +43,7 @@ recyclingItemRouter.get('/', (req, res) => {
   })
 })
 
+
 recyclingItemRouter.get('/:itemId', (req, res) => {
   recyclingItemApi.getRecyclingItem(req.params.itemId)
   .then((item) => {
@@ -51,6 +52,7 @@ recyclingItemRouter.get('/:itemId', (req, res) => {
 })
 
 recyclingItemRouter.post('/', (req, res) => {
+  req.body.userId = req.params.userId
   recyclingItemApi.createRecyclingItem(req.body)
   .then((newItem) => {
     res.json(newItem)
