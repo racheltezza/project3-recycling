@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -77,11 +78,13 @@ export default class RecyclingItems extends Component {
     render() {
         let recyclingItemsList = this.state.recyclingItems.map((item) => {
             return( 
-                <ul>
-                    <li>{item.name}</li>
-                    <li>{item.type}</li>
-                    <li>{item.points}</li>
-                </ul>
+                <Link 
+                to="/"
+                key={item._id} 
+                to={`/users/${this.props.match.params.userId}/recyclingItems/${item._id}`}
+            >
+                {item.name}
+            </Link>
             )
         })
         return (

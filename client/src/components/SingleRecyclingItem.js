@@ -30,7 +30,7 @@ export default class SingleRecyclingItem extends Component {
     componentDidMount() {
         axios.get(`/api/users/${this.props.match.params.userId}/recyclingItems/${this.props.match.params.itemId}`)
             .then((res) => {
-                this.setState({message: res.data})
+                this.setState({recyclingItem: res.data})
             })
     }
 
@@ -38,6 +38,18 @@ export default class SingleRecyclingItem extends Component {
         const copiedRecyclingItem = {...this.state.recyclingItem}
         copiedRecyclingItem[event.target.name] = event.target.value
         this.setState({recyclingItem: copiedRecyclingItem})
+    }
+
+
+    handleEditSubmit = (event) => {
+        event.preventDefault()
+        axios.put(`/api/users/${this.props.match.params.userId}/recyclingItems/${this.props.match.params.itemId}`, this.state.recyclingItem)
+        .then((res) => {
+            this.setState({
+                recyclingItem: res.data,
+                isEditFormShowing: false
+            })
+        })
     }
 
     /* Step 5
@@ -50,13 +62,39 @@ export default class SingleRecyclingItem extends Component {
         return (
             this.state.isEditFormShowing
             ?
-            <form>
+            <form onSubmit={this.handleEditSubmit}>
+                <label htmlFor="item-name">Item Name</label>
+                    <input 
+                        type="text" 
+                        id="item-name" 
+                        name="name" 
+                        onChange={this.handleInputChange} 
+                        value={this.state.recyclingItem.name}
+                    />
+                <label htmlFor="item-type">Item Type</label>
+                    <input 
+                        type="text" 
+                        id="item-type" 
+                        name="type" 
+                        onChange={this.handleInputChange} 
+                        value={this.state.recyclingItem.type}
+                    />
+                <label htmlFor="item-points">Item Points</label>
+                    <input 
+                        type="text" 
+                        id="item-points" 
+                        name="points" 
+                        onChange={this.handleInputChange} 
+                        value={this.state.recyclingItem.points}
+                    />
+                <input type="submit" value="Update Item" />
 
             </form>
             :
             <div>
                 {/* Accessing the value of message from the state object */}
                 <h1>Single Item</h1>
+                {this.state.recyclingItem.name}
             </div>
         )
     }
