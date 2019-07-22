@@ -41,6 +41,23 @@ export default class SingleCreature extends Component {
         this.setState({user: copiedUser})
     }
 
+    handleEditSubmit = (event) => {
+        event.preventDefault()
+        axios.put(`/api/users/${this.state.user._id}`, this.state.user)
+        .then((res) => {
+            this.setState({
+                user: res.data,
+                isEditFormShowing: false
+            })
+        })
+    }
+
+    handleToggledEditForm = () => {
+        this.setState((state) => {
+            return {isEditFormShowing: !state.isEditFormShowing}
+        })
+    }
+
     
 
     /* Step 5
@@ -51,12 +68,54 @@ export default class SingleCreature extends Component {
     */
     render() {
         return (
+            this.state.isEditFormShowing
+            ?
+            <form onSubmit={this.handleEditSubmit}>
+                <label htmlFor="user-name">User Name</label>
+                <input 
+                    type="text" 
+                    id="user-name" 
+                    name="name" 
+                    onChange={this.handleInputChange}
+                    value={this.state.user.name}
+                />
+                <label htmlFor="user-userName">User Username</label>
+                <input
+                    type="text"
+                    id="user-userName"
+                    name="userName"
+                    onChange={this.handleInputChange}
+                    value={this.state.user.userName}
+                />
+                <label htmlFor="user-password">User Password</label>
+                <input
+                    type="text"
+                    id="user-password"
+                    name="password"
+                    onChange={this.handleInputChange}
+                    value={this.state.user.password}
+                />
+                <label htmlFor="user-city">User City</label>
+                <input
+                    type="text"
+                    id="user-city"
+                    name="city"
+                    onChange={this.handleInputChange}
+                    value={this.state.user.city}
+                />
+                <input
+                    type="submit"
+                    value="Update User" 
+                />
+            </form>
+            :
             <div>
                 <h1>User</h1>
                 <h1>Name: {this.state.user.name}</h1>
                 <p>Username: {this.state.user.userName}</p>
                 <p>Password: {this.state.user.password}</p>
                 <p>City: {this.state.user.city}</p>
+                <button onClick={this.handleToggledEditForm}>Edit User</button>
             </div>
         )
     }

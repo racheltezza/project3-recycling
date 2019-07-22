@@ -57,6 +57,13 @@ userRouter.post('/', (req, res) => {
   })
 })
 
+userRouter.put('/:userId', (req, res) => {
+  userApi.updateUser(req.params.userId, req.body)
+  .then((updatedUser) => {
+    res.json(updatedUser)
+  })
+})
+
 userRouter.delete('/:userId', (req, res) => {
   userApi.deleteUser(req.params.userId)
   .then(() => {
