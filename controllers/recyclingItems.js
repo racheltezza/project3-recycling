@@ -57,6 +57,13 @@ recyclingItemRouter.post('/', (req, res) => {
   })
 })
 
+recyclingItemRouter.delete('/:itemId', (req, res) => {
+  recyclingItemApi.deleteRecyclingItem(req.params.itemId)
+  .then(() => {
+    res.send('item deleted')
+  })
+})
+
 
 /* Step 6
  *
