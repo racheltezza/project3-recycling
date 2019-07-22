@@ -99,22 +99,55 @@ export default class RecyclingItems extends Component {
                         onChange={this.handleInputChange} 
                         value={this.state.newItem.name}
                     />
-                <label htmlFor="new-item-type">Item Type</label>
-                    <input 
+                <div class="form-group">
+                    <label htmlFor="new-item-type" class="form-label">Item Type</label>
+                        <select 
+                            class="custom-select" 
+                            name="type" 
+                            id="new-item-type"
+                            onChange={this.handleInputChange} 
+                            value={this.state.newItem.type}
+                        >
+                            {/* <option selected>Type</option> */}
+                            <option>Type</option>
+                            <option>Paper</option>
+                            <option>Cardboard</option>
+                            <option>Glass</option>
+                            <option>Plastic</option>
+                        </select>
+                    </div>
+                    {/* <input 
                         type="text" 
                         id="new-item-type" 
                         name="type" 
                         onChange={this.handleInputChange} 
                         value={this.state.newItem.type}
-                    />
-                <label htmlFor="new-item-points">Item Points</label>
+                    /> */}
+                <div class="form-group">
+                    <label htmlFor="new-item-points" class="form-label">Item Points</label>
+                        <select 
+                            class="custom-select" 
+                            name="points" 
+                            id="new-item-points"
+                            onChange={this.handleInputChange} 
+                            value={this.state.newItem.points}
+                        >
+                            {/* <option selected>Type</option> */}
+                            <option>Points</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                {/* <label htmlFor="new-item-points">Item Points</label>
                     <input 
                         type="text" 
                         id="new-item-points" 
                         name="points" 
                         onChange={this.handleInputChange} 
                         value={this.state.newItem.points}
-                    />
+                    /> */}
                 <input type="submit" value="Add Item" />
             
             </form>
