@@ -49,8 +49,8 @@ function createRecyclingItem(newItem) {
   return RecyclingItemCollection.create(newItem)
 }
 
-function editRecyclingItem(itemId, newItem, {new: true}) {
-  return RecyclingItemCollection.findByIdAndUpdate(itemId, newItem)
+function editRecyclingItem(itemId, newItem) {
+  return RecyclingItemCollection.findByIdAndUpdate(itemId, newItem, {new: true})
 }
 
 function deleteRecyclingItem(itemId) {

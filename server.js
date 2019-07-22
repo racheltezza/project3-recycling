@@ -17,6 +17,7 @@ const app = express()
  *
  */
 const { userRouter } = require('./controllers/users.js')
+const { recyclingItemRouter } = require('./controllers/recyclingItems.js')
 
 
 /* Step 3
@@ -50,6 +51,7 @@ app.use(express.static(`${__dirname}/client/build`))
  * the paths defined in the router.
  */
 app.use('/api/users', userRouter)
+app.use('/api/users/:userId/recyclingItems', recyclingItemRouter)
 
 /* Step 5
  *
