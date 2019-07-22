@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -52,6 +53,19 @@ export default class SingleRecyclingItem extends Component {
         })
     }
 
+    handleToggledEditForm = () => {
+        this.setState((state) => {
+            return {isEditFormShowing: !state.isEditFormShowing}
+        })
+    }
+
+    handleDeleteItem = () => {
+        axios.delete(`/api/users/${this.props.match.params.userId}/recyclingItems/${this.props.match.params.itemId}`)
+        .then(() => {
+            this.setState({redirectToList: true})
+        })
+    }
+
     /* Step 5
     *  The render function manages what is shown in the browser
     *  TODO: delete the jsx returned
@@ -59,6 +73,9 @@ export default class SingleRecyclingItem extends Component {
     *
     */
     render() {
+        if(this.state.redirectToList) {
+            return <Redirect to="/users/:userId/recyclingItems" />
+        }
         return (
             this.state.isEditFormShowing
             ?
@@ -95,6 +112,8 @@ export default class SingleRecyclingItem extends Component {
                 {/* Accessing the value of message from the state object */}
                 <h1>Single Item</h1>
                 {this.state.recyclingItem.name}
+                <button onClick={this.handleToggledEditForm}>Update This Item</button>
+                <button onClick={this.handleDeleteItem}>Delete This Item</button>
             </div>
         )
     }
