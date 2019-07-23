@@ -1,6 +1,7 @@
 /* Step 1 import React, { Component } and axios
  *
  */
+import { Descriptions, Badge } from 'antd';
 import { List, Avatar } from 'antd';
 import { Input } from 'antd';
 import React, { Component } from 'react'
@@ -122,14 +123,20 @@ export default class RecyclingItems extends Component {
     */
     render() {
         let recyclingItemsList = this.state.recyclingItems.map((item) => {
-            return( 
-                <Link 
-                to="/"
-                key={item._id} 
-                to={`/users/${this.props.match.params.userId}/recyclingItems/${item._id}`}
-            >
-                {item.name}
-            </Link>
+            return(
+                <Descriptions bordered>
+                <Descriptions.Item label="Product">
+                    <Link 
+                        to="/"
+                        key={item._id} 
+                        to={`/users/${this.props.match.params.userId}/recyclingItems/${item._id}`}
+                    >
+                        {item.name}
+                    </Link>
+                </Descriptions.Item>
+                <Descriptions.Item label="Type">{item.type}</Descriptions.Item>
+                <Descriptions.Item label="Points">{item.points}</Descriptions.Item>
+                </Descriptions>
             )
         })
         return (
