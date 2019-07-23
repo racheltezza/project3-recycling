@@ -1,11 +1,42 @@
 /* Step 1 import React, { Component } and axios
  *
  */
+import { List, Avatar } from 'antd';
+import { Input } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { Select } from 'antd';
 const { Option } = Select;
+
+const data = [
+  {
+    title: 'Paper Products',
+    avitar: 'https://png.pngtree.com/element_pic/16/11/21/311ab2bd19b1dce2bf11dc0128f91583.jpg',
+    description: 'Newspaper, Envelopes, Junk Mail, Phone books, Brochures, Magazines',
+  },
+  {
+    title: 'Cardboard Products',
+    avitar: 'https://img.pngio.com/kraft-cardboard-box-cardboard-kraft-paper-management-png-image-and-clipart-box-png-260_261.png',
+    description: 'Ream wrappers, File Folders, Poster Board, Frozen food boxes, Cardboard boxes, Milk cartons',
+  },
+  {
+    title: 'Aluminum Products',
+    avitar: 'https://banner2.kisspng.com/20180809/vxc/kisspng-tin-can-sublimation-aluminium-aluminum-can-lid-lata-5b6c5cf9cc7c56.3049454215338283458376.jpg',
+    description: 'Milk jugs (no cartons), Water/Soda containers, Shampoo/Soap/Detergent bottles',
+  },
+  {
+    title: 'Plastic Products',
+    avitar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc6nVAuG7ZeBFVyaOq554LkdYeIcEUnnOpiVkvpsu9Urcahc77fQ',
+    description: 'Aluminum beverage cans,  Food cans, Scrap metal',
+   
+  },
+  {
+    title: 'Glass Products',
+    avitar: 'https://banner2.kisspng.com/20171216/20f/empty-glass-bottles-png-image-5a34eaf4b694f5.1943923715134174607479.jpg',
+    description: 'Beverage containers, Glass food jars',
+  },
+];
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -105,14 +136,17 @@ export default class RecyclingItems extends Component {
             this.state.isNewFormShowing
             ?
             <form onSubmit={this.handleNewItemSubmit}>
+                <div className="example-input">
                 <label htmlFor="new-item-name">Item Name</label>
-                    <input 
+                    <Input 
+                        size="large"
                         type="text" 
                         id="new-item-name" 
                         name="name" 
                         onChange={this.handleInputChange} 
                         value={this.state.newItem.name}
                     />
+                </div>
                 <div>
                     <label htmlFor="new-item-type">Item Type</label>
                         <Select 
@@ -123,9 +157,9 @@ export default class RecyclingItems extends Component {
                             onChange={this.handleItemTypeChange} 
                             value={this.state.newItem.type}
                         >
-                            <Option value ="type">Type</Option>
                             <Option value ="paper">Paper</Option>
                             <Option value ="cardboard">Cardboard</Option>
+                            <Option value ="aluminum">Aluminum</Option>
                             <Option value ="glass">Glass</Option>
                             <Option value ="plastic">Plastic</Option>
                         </Select>
@@ -140,7 +174,6 @@ export default class RecyclingItems extends Component {
                             onChange={this.handleItemPointsChange} 
                             value={this.state.newItem.points}
                         >
-                            <Option value ="points">Points</Option>
                             <Option value ="1">1</Option>
                             <Option value ="2">2</Option>
                             <Option value ="3">3</Option>
@@ -156,6 +189,20 @@ export default class RecyclingItems extends Component {
                 <h1>Recycling Items</h1>
                 {recyclingItemsList}
                 <button onClick={this.handleToggledNewForm}>Add Item to List</button>
+
+                <List
+                    itemLayout="horizontal"
+                    dataSource={data}
+                    renderItem={item => (
+                    <List.Item>
+                        <List.Item.Meta
+                            avatar={<Avatar src={item.avitar} />}
+                            title={<a href="https://www.republicservices.com/recycling-guide">{item.title}</a>}
+                            description={item.description}
+                        />
+                    </List.Item>
+                    )}
+                 />
             </div>
         )
     }

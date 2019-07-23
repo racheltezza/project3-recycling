@@ -1,6 +1,7 @@
 /* Step 1 import React, { Component } and axios
  *
  */
+import { Input } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
@@ -94,26 +95,29 @@ export default class SingleRecyclingItem extends Component {
             this.state.isEditFormShowing
             ?
             <form onSubmit={this.handleEditSubmit}>
+                <div className="example-input">
                 <label htmlFor="item-name">Item Name</label>
-                    <input 
+                    <Input 
+                        size="large"
                         type="text" 
                         id="item-name" 
                         name="name" 
                         onChange={this.handleInputChange} 
                         value={this.state.recyclingItem.name}
                     />
-
+                </div>
                 <div>
                     <label htmlFor="item-type">Item Type</label>
-                        <Select 
+                        <Select
+                            style={{ width: 120 }}
                             name="type" 
                             id="item-type"
                             onChange={this.handleItemTypeChange} 
                             value={this.state.recyclingItem.type}
                         >
-                            <Option value="type">Type</Option>
                             <Option value="paper">Paper</Option>
                             <Option value="cardboard">Cardboard</Option>
+                            <Option value ="aluminum">Aluminum</Option>
                             <Option value="glass">Glass</Option>
                             <Option value="plastic">Plastic</Option>
                         </Select>
@@ -121,12 +125,12 @@ export default class SingleRecyclingItem extends Component {
                 <div>
                     <label htmlFor="item-points">Item Points</label>
                         <Select 
+                            style={{ width: 120 }}
                             name="points" 
                             id="item-points"
                             onChange={this.handleItemPointsChange} 
                             value={this.state.recyclingItem.points}
                         >
-                            <Option value="points">Points</Option>
                             <Option value="1">1</Option>
                             <Option value="2">2</Option>
                             <Option value="3">3</Option>
