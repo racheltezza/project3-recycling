@@ -4,6 +4,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { Select } from 'antd';
+const { Option } = Select;
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -50,6 +52,17 @@ export default class RecyclingItems extends Component {
         this.setState({newItem: copiedNewItem})
     }
 
+    handleItemTypeChange = (value) => {
+        const copiedNewItem = {...this.state.newItem}
+        copiedNewItem.type = value
+        this.setState({newItem: copiedNewItem})
+    }
+
+    handleItemPointsChange = (value) => {
+        const copiedNewItem = {...this.state.newItem}
+        copiedNewItem.points = value
+        this.setState({newItem: copiedNewItem})
+    }
 
     handleNewItemSubmit = (event) => {
         event.preventDefault()
@@ -61,6 +74,7 @@ export default class RecyclingItems extends Component {
             this.getAllItems()
         })
     }
+   
 
     handleToggledNewForm = () => {
         this.setState((state) => {
@@ -99,37 +113,39 @@ export default class RecyclingItems extends Component {
                         onChange={this.handleInputChange} 
                         value={this.state.newItem.name}
                     />
-                <div className="form-group">
-                    <label htmlFor="new-item-type" className="form-label">Item Type</label>
-                        <select 
-                            className="custom-select" 
+                <div>
+                    <label htmlFor="new-item-type">Item Type</label>
+                        <Select 
+                            style={{ width: 120 }}
+                            defaultValue="paper"
                             name="type" 
                             id="new-item-type"
-                            onChange={this.handleInputChange} 
+                            onChange={this.handleItemTypeChange} 
                             value={this.state.newItem.type}
                         >
-                            <option>Type</option>
-                            <option>Paper</option>
-                            <option>Cardboard</option>
-                            <option>Glass</option>
-                            <option>Plastic</option>
-                        </select>
+                            <Option value ="type">Type</Option>
+                            <Option value ="paper">Paper</Option>
+                            <Option value ="cardboard">Cardboard</Option>
+                            <Option value ="glass">Glass</Option>
+                            <Option value ="plastic">Plastic</Option>
+                        </Select>
                     </div>
-                <div className="form-group">
-                    <label htmlFor="new-item-points" className="form-label">Item Points</label>
-                        <select 
-                            className="custom-select" 
+                <div>
+                    <label htmlFor="new-item-points">Item Points</label>
+                        <Select  
+                            style={{ width: 120 }}
+                            defaultValue="points"
                             name="points" 
                             id="new-item-points"
-                            onChange={this.handleInputChange} 
+                            onChange={this.handleItemPointsChange} 
                             value={this.state.newItem.points}
                         >
-                            <option>Points</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                            <Option value ="points">Points</Option>
+                            <Option value ="1">1</Option>
+                            <Option value ="2">2</Option>
+                            <Option value ="3">3</Option>
+                            <Option value ="4">4</Option>
+                        </Select>
                     </div>
                 <input type="submit" value="Add Item" />
             

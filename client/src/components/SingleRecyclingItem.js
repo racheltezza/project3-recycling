@@ -4,6 +4,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
+import { Select } from 'antd';
+const { Option } = Select;
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -38,6 +40,18 @@ export default class SingleRecyclingItem extends Component {
     handleInputChange = (event) => {
         const copiedRecyclingItem = {...this.state.recyclingItem}
         copiedRecyclingItem[event.target.name] = event.target.value
+        this.setState({recyclingItem: copiedRecyclingItem})
+    }
+
+    handleItemTypeChange = (value) => {
+        const copiedRecyclingItem = {...this.state.recyclingItem}
+        copiedRecyclingItem.type = value
+        this.setState({recyclingItem: copiedRecyclingItem})
+    }
+
+    handleItemPointsChange = (value) => {
+        const copiedRecyclingItem = {...this.state.recyclingItem}
+        copiedRecyclingItem.points = value
         this.setState({recyclingItem: copiedRecyclingItem})
     }
 
@@ -89,37 +103,35 @@ export default class SingleRecyclingItem extends Component {
                         value={this.state.recyclingItem.name}
                     />
 
-                <div className="form-group">
-                    <label htmlFor="item-type" className="form-label">Item Type</label>
-                        <select 
-                            className="custom-select" 
+                <div>
+                    <label htmlFor="item-type">Item Type</label>
+                        <Select 
                             name="type" 
                             id="item-type"
-                            onChange={this.handleInputChange} 
+                            onChange={this.handleItemTypeChange} 
                             value={this.state.recyclingItem.type}
                         >
-                            <option>Type</option>
-                            <option>Paper</option>
-                            <option>Cardboard</option>
-                            <option>Glass</option>
-                            <option>Plastic</option>
-                        </select>
+                            <Option value="type">Type</Option>
+                            <Option value="paper">Paper</Option>
+                            <Option value="cardboard">Cardboard</Option>
+                            <Option value="glass">Glass</Option>
+                            <Option value="plastic">Plastic</Option>
+                        </Select>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="item-points" className="form-label">Item Points</label>
-                        <select 
-                            className="custom-select" 
+                <div>
+                    <label htmlFor="item-points">Item Points</label>
+                        <Select 
                             name="points" 
                             id="item-points"
-                            onChange={this.handleInputChange} 
+                            onChange={this.handleItemPointsChange} 
                             value={this.state.recyclingItem.points}
                         >
-                            <option>Points</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                            <Option value="points">Points</Option>
+                            <Option value="1">1</Option>
+                            <Option value="2">2</Option>
+                            <Option value="3">3</Option>
+                            <Option value="4">4</Option>
+                        </Select>
                     </div>
                 {/* <label htmlFor="item-type">Item Type</label>
                     <input 
@@ -146,6 +158,8 @@ export default class SingleRecyclingItem extends Component {
                 <a href={`/users/${this.props.match.params.userId}/recyclingItems`}>Back to Recycling List</a>
                 <h1>Single Item</h1>
                 {this.state.recyclingItem.name}
+                {this.state.recyclingItem.type}
+                {this.state.recyclingItem.points}
                 <button onClick={this.handleToggledEditForm}>Update This Item</button>
                 <button onClick={this.handleDeleteItem}>Delete This Item</button>
             </div>
