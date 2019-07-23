@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom'
 import { Select } from 'antd';
 const { Option } = Select;
 
-const data = [
+const recyclablesData = [
   {
     title: 'Paper Products',
     avitar: 'https://png.pngtree.com/element_pic/16/11/21/311ab2bd19b1dce2bf11dc0128f91583.jpg',
@@ -192,7 +192,7 @@ export default class RecyclingItems extends Component {
 
                 <List
                     itemLayout="horizontal"
-                    dataSource={data}
+                    dataSource={recyclablesData}
                     renderItem={item => (
                     <List.Item>
                         <List.Item.Meta
