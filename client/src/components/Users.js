@@ -1,6 +1,7 @@
 /* Step 1 import React, { Component } and axios
  *
  */
+import { Button, Form, Input } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
@@ -75,6 +76,8 @@ export default class Users extends Component {
     render() {
         let usersList = this.state.users.map((user) => {
             return( 
+                <ul>
+                    <li>
             <Link 
                 to="/"
                 key={user._id} 
@@ -82,6 +85,9 @@ export default class Users extends Component {
             >
                 {user.name}
             </Link>
+
+                    </li>
+                </ul>
             )
         })
         return (
@@ -125,9 +131,9 @@ export default class Users extends Component {
             :
             <div>
                 {/* Accessing the value of message from the state object */}
-                <h1>All Users</h1>
+                <h1>All Recyclers</h1>
                 {usersList}
-                <button onClick={this.handleToggledNewForm}>Create New User</button>
+                <Button type="primary" onClick={this.handleToggledNewForm}>Create New User</Button>
             </div>
         )
     }

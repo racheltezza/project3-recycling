@@ -1,7 +1,8 @@
 /* Step 1 import React, { Component } and axios
  *
  */
-import { Input } from 'antd';
+import { Button } from 'antd';
+ import { Input } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
@@ -161,11 +162,19 @@ export default class SingleRecyclingItem extends Component {
                 {/* Accessing the value of message from the state object */}
                 <a href={`/users/${this.props.match.params.userId}/recyclingItems`}>Back to Recycling List</a>
                 <h1>Single Item</h1>
-                {this.state.recyclingItem.name}
-                {this.state.recyclingItem.type}
-                {this.state.recyclingItem.points}
-                <button onClick={this.handleToggledEditForm}>Update This Item</button>
-                <button onClick={this.handleDeleteItem}>Delete This Item</button>
+                <ul>
+                    <li>
+                        <h3>{this.state.recyclingItem.name}</h3>
+                    </li>
+                    <li>
+                        Type: {this.state.recyclingItem.type}
+                    </li>
+                    <li>
+                        Points: {this.state.recyclingItem.points}
+                    </li>
+                </ul>
+                <Button onClick={this.handleToggledEditForm}>Update This Item</Button>
+                <Button type = "danger" onClick={this.handleDeleteItem}>Delete This Item</Button>
             </div>
         )
     }

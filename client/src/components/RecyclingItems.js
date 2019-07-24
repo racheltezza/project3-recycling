@@ -1,6 +1,7 @@
 /* Step 1 import React, { Component } and axios
  *
  */
+import { Button } from 'antd';
 import { Descriptions, Badge } from 'antd';
 import { List, Avatar } from 'antd';
 import { Input } from 'antd';
@@ -124,7 +125,7 @@ export default class RecyclingItems extends Component {
     render() {
         let recyclingItemsList = this.state.recyclingItems.map((item) => {
             return(
-                <Descriptions bordered>
+                <Descriptions layout="vertical" size="small" bordered>
                 <Descriptions.Item label="Product">
                     <Link 
                         to="/"
@@ -193,10 +194,11 @@ export default class RecyclingItems extends Component {
             :
             <div>
                 <a href="/"> Back to All Users</a>
-                <h1>Recycling Items</h1>
+                <h1>My Recycled Items</h1>
+                
                 {recyclingItemsList}
-                <button onClick={this.handleToggledNewForm}>Add Item to List</button>
-
+                <Button  type= "primary" onClick={this.handleToggledNewForm}>Add Item to List</Button>
+                <h1>Recycling Guide</h1>
                 <List
                     itemLayout="horizontal"
                     dataSource={recyclablesData}
