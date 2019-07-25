@@ -238,6 +238,7 @@ export default class RecyclingItems extends Component {
             </form>
             :
             <div>
+                <Link to={`/users/${this.props.match.params.userId}`}>View User Profile</Link>
                 <a class="back-link" href="/"> Back to All Users</a>
                 <h1>My Recycled Items</h1>
                 
