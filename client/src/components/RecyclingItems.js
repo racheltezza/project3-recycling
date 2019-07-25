@@ -246,7 +246,7 @@ export default class RecyclingItems extends Component {
                 <h1>My Recycled Items</h1>
                 
                 <Button  type= "primary" onClick={this.handleToggledNewForm}>Add Item to List</Button>
-                <Table columns={columnNames} dataSource={recyclingItemsList}/>
+                <Table columns={columnNames} dataSource={recyclingItemsList} pagination={false}/>
                 <h1>Recycling Guide</h1>
                 <List
                     itemLayout="horizontal"
