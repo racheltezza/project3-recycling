@@ -1,6 +1,7 @@
 /* Step 1 import React, { Component } and axios
  *
  */
+import { Button, Form, Input } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect, Link} from 'react-router-dom'
@@ -81,7 +82,53 @@ export default class SingleUser extends Component {
             this.state.isEditFormShowing
             ?
             <form onSubmit={this.handleEditSubmit}>
-                <label htmlFor="user-name">User Name</label>
+
+<div className="example-input">
+                    <label htmlFor="user-name">Name</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="user-name" 
+                            name="name" 
+                            onChange={this.handleInputChange} 
+                            value={this.state.user.name}
+                        />
+                </div>
+                <div className="example-input">
+                    <label htmlFor="user-userName">Username</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="user-userName" 
+                            name="userName" 
+                            onChange={this.handleInputChange} 
+                            value={this.state.user.userName}
+                        />
+                </div>
+                <div className="example-input">
+                    <label htmlFor="user-password">Password</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="user-password" 
+                            name="password" 
+                            onChange={this.handleInputChange} 
+                            value={this.state.user.password}
+                        />
+                </div>
+                <div className="example-input">
+                    <label htmlFor="user-city">City</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="user-city" 
+                            name="city" 
+                            onChange={this.handleInputChange} 
+                            value={this.state.user.city}
+                        />
+                </div>
+
+                {/* <label htmlFor="user-name">User Name</label>
                 <input 
                     type="text" 
                     id="user-name" 
@@ -112,7 +159,7 @@ export default class SingleUser extends Component {
                     name="city"
                     onChange={this.handleInputChange}
                     value={this.state.user.city}
-                />
+                /> */}
                 <input
                     type="submit"
                     value="Update User" 
@@ -120,13 +167,13 @@ export default class SingleUser extends Component {
             </form>
             :
             <div>
-                <h1>User</h1>
-                <h1>Name: {this.state.user.name}</h1>
-                <p>Username: {this.state.user.userName}</p>
-                <p>Password: {this.state.user.password}</p>
-                <p>City: {this.state.user.city}</p>
-                <button onClick={this.handleToggledEditForm}>Edit User</button>
-                <button onClick={this.handleDeleteUser}>Delete User</button>
+                <Link  class="back-link" to={`/users/${this.props.match.params.userId}/recyclingItems`}>Back to Recyling List</Link>
+                <h1>{this.state.user.name}</h1>
+                <p><span class="item-property">Username:</span> {this.state.user.userName}</p>
+                <p><span class="item-property">Password:</span> {this.state.user.password}</p>
+                <p><span class="item-property">City:</span> {this.state.user.city}</p>
+                <Button onClick={this.handleToggledEditForm}>Edit User</Button>
+                <Button type = "danger" onClick={this.handleDeleteUser}>Delete User</Button>
             </div>
         )
     }

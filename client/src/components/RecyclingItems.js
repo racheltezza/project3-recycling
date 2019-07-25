@@ -238,8 +238,10 @@ export default class RecyclingItems extends Component {
             </form>
             :
             <div>
-                <Link to={`/users/${this.props.match.params.userId}`}>View User Profile</Link>
-                <a class="back-link" href="/"> Back to All Users</a>
+                <div class="clearfix">
+                <Link class="back-link" to='/'>Back to All Users</Link>
+                <Link class="to-profile-link" to={`/users/${this.props.match.params.userId}`}>View User Profile</Link>
+                </div>
                 <h1>My Recycled Items</h1>
                 
                 <Table columns={columnNames} dataSource={recyclingItemsList}/>
