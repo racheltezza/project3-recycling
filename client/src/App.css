@@ -2,9 +2,9 @@
 @import './index.css';
 
 
-  /* .App {
+  .App {
     text-align: center;
-  } */
+  }
 
 /* .App-header {
   background-color: #282c34;
@@ -21,11 +21,25 @@
   color: #61dafb;
 }
 
+
 li {
   list-style: none;
 }
 
+
 .example-input .ant-input {
   width: 200px;
   margin: 0 8px 8px 0;
+}
+
+.ant-list {
+  width: 50%;
+  border: 1px solid green;
+  display: flex;
+  background-color: #bac2be;
+  margin: 0 auto;
+}
+
+.ant-btn {
+  margin: 20px;
 }

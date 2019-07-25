@@ -136,6 +136,7 @@ export default class SingleRecyclingItem extends Component {
                             <Option value="2">2</Option>
                             <Option value="3">3</Option>
                             <Option value="4">4</Option>
+                            <Option value="5">5</Option>
                         </Select>
                     </div>
                 {/* <label htmlFor="item-type">Item Type</label>
