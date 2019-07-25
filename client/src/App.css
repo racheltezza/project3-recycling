@@ -21,6 +21,9 @@
   color: #61dafb;
 }
 
+ul {
+  padding: 0;
+}
 
 li {
   list-style: none;
@@ -42,4 +45,30 @@ li {
 
 .ant-btn {
   margin: 20px;
+}
+
+.ant-list-item {
+  padding: 12px 10px;
+}
+
+a {
+  color: green;
+}
+
+.ant-btn-primary {
+  background-color: green;
+}
+
+.ant-select-selection {
+  margin: 20px 5px;
+}
+
+.item-property {
+  font-weight: bold;
+}
+
+.back-link {
+  display: flex;
+  align-content: flex-start;
+  margin: 10px;
 }

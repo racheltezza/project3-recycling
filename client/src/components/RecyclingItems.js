@@ -196,24 +196,24 @@ export default class RecyclingItems extends Component {
                         id="new-item-name" 
                         name="name" 
                         onChange={this.handleInputChange} 
-                        value={this.state.newItem.name}
+                        // value={this.state.newItem.name}
                     />
                 </div>
                 <div>
                     <label htmlFor="new-item-type">Item Type</label>
                         <Select 
                             style={{ width: 120 }}
-                            defaultValue="paper"
-                            name="type" 
+                            defaultValue="type"
+                            name="type"
                             id="new-item-type"
                             onChange={this.handleItemTypeChange} 
-                            value={this.state.newItem.type}
+                            // value={this.state.newItem.type}
                         >
                             <Option value ="paper">Paper</Option>
                             <Option value ="cardboard">Cardboard</Option>
                             <Option value ="aluminum">Aluminum</Option>
-                            <Option value ="glass">Glass</Option>
                             <Option value ="plastic">Plastic</Option>
+                            <Option value ="glass">Glass</Option>
                         </Select>
                     </div>
                 <div>
@@ -224,7 +224,7 @@ export default class RecyclingItems extends Component {
                             name="points" 
                             id="new-item-points"
                             onChange={this.handleItemPointsChange} 
-                            value={this.state.newItem.points}
+                            // value={this.state.newItem.points}
                         >
                             <Option value ="1">1</Option>
                             <Option value ="2">2</Option>
@@ -238,7 +238,7 @@ export default class RecyclingItems extends Component {
             </form>
             :
             <div>
-                <a href="/"> Back to All Users</a>
+                <a class="back-link" href="/"> Back to All Users</a>
                 <h1>My Recycled Items</h1>
                 
                 <Table columns={columnNames} dataSource={recyclingItemsList}/>

@@ -161,17 +161,16 @@ export default class SingleRecyclingItem extends Component {
             :
             <div>
                 {/* Accessing the value of message from the state object */}
-                <a href={`/users/${this.props.match.params.userId}/recyclingItems`}>Back to Recycling List</a>
-                <h1>Single Item</h1>
+                <a class="back-link" href={`/users/${this.props.match.params.userId}/recyclingItems`}>Back to Recycling List</a>
                 <ul>
                     <li>
-                        <h3>{this.state.recyclingItem.name}</h3>
+                        <h1>{this.state.recyclingItem.name}</h1>
                     </li>
                     <li>
-                        Type: {this.state.recyclingItem.type}
+                        <span class="item-property">Type:</span> {this.state.recyclingItem.type}
                     </li>
                     <li>
-                        Points: {this.state.recyclingItem.points}
+                    <span class="item-property">Points:</span> {this.state.recyclingItem.points}
                     </li>
                 </ul>
                 <Button onClick={this.handleToggledEditForm}>Update This Item</Button>

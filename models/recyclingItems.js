@@ -21,7 +21,7 @@ const mongoose = require('./connection.js')
 const RecyclingItemSchema = new mongoose.Schema({
  name: String,
  type: String,
- points: { type: Number, min: 1, max: 3 },
+ points: { type: Number, min: 1, max: 5 },
  userId: mongoose.Types.ObjectId
 })
 

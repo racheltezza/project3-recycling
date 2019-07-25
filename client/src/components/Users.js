@@ -94,15 +94,59 @@ export default class Users extends Component {
             this.state.isNewFormShowing
             ?
             <form onSubmit={this.handleNewUserSubmit}>
-                <label htmlFor="new-user-name">User Name</label>
+                <div className="example-input">
+                    <label htmlFor="new-user-name">Name</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="new-user-name" 
+                            name="name" 
+                            onChange={this.handleInputChange} 
+                            // value={this.state.newItem.name}
+                        />
+                </div>
+                <div className="example-input">
+                    <label htmlFor="new-user-userName">Username</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="new-user-userName" 
+                            name="userName" 
+                            onChange={this.handleInputChange} 
+                            // value={this.state.newItem.name}
+                        />
+                </div>
+                <div className="example-input">
+                    <label htmlFor="new-user-password">Password</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="new-user-password" 
+                            name="password" 
+                            onChange={this.handleInputChange} 
+                            // value={this.state.newItem.name}
+                        />
+                </div>
+                <div className="example-input">
+                    <label htmlFor="new-user-city">City</label>
+                        <Input 
+                            size="large"
+                            type="text" 
+                            id="new-user-city" 
+                            name="city" 
+                            onChange={this.handleInputChange} 
+                            // value={this.state.newItem.name}
+                        />
+                </div>
+                {/* <label htmlFor="new-user-name">User Name</label>
                 <input 
                     type="text" 
                     id="new-user-name" 
                     name="name"
                     onChange={this.handleInputChange}
                     value={this.state.newUser.name}
-                />
-                <label htmlFor="new-user-username">Username</label>
+                /> */}
+                {/* <label htmlFor="new-user-username">Username</label>
                 <input 
                     type="text" 
                     id="new-user-username"
@@ -125,7 +169,7 @@ export default class Users extends Component {
                     name="city" 
                     onChange={this.handleInputChange}
                     value={this.state.newUser.city}
-                />
+                /> */}
                 <input type="submit" value="Add User" />
             </form>
             :
