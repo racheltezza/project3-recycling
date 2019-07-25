@@ -1,14 +1,10 @@
 /* Step 1 import React, { Component } and axios
  *
  */
-import { Button, Table } from 'antd';
-import { Descriptions, Badge } from 'antd';
-import { List, Avatar } from 'antd';
-import { Input } from 'antd';
+import { Button, Table, List, Avatar, Input, Select } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import { Select } from 'antd';
 const { Option } = Select;
 
 const recyclablesData = [
@@ -233,7 +229,12 @@ export default class RecyclingItems extends Component {
                             <Option value ="5">5</Option>
                         </Select>
                     </div>
-                <input type="submit" value="Add Item" />
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                    >
+                        Add Item
+                    </Button>
             
             </form>
             :
@@ -244,8 +245,8 @@ export default class RecyclingItems extends Component {
                 </div>
                 <h1>My Recycled Items</h1>
                 
-                <Table columns={columnNames} dataSource={recyclingItemsList}/>
                 <Button  type= "primary" onClick={this.handleToggledNewForm}>Add Item to List</Button>
+                <Table columns={columnNames} dataSource={recyclingItemsList}/>
                 <h1>Recycling Guide</h1>
                 <List
                     itemLayout="horizontal"

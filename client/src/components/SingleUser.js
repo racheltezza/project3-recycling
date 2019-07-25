@@ -160,18 +160,22 @@ export default class SingleUser extends Component {
                     onChange={this.handleInputChange}
                     value={this.state.user.city}
                 /> */}
-                <input
-                    type="submit"
-                    value="Update User" 
-                />
+                <Button
+                    type="primary"
+                    htmlType="submit"
+                >
+                    Update User
+                </Button>
             </form>
             :
             <div>
                 <Link  class="back-link" to={`/users/${this.props.match.params.userId}/recyclingItems`}>Back to Recyling List</Link>
                 <h1>{this.state.user.name}</h1>
+                <div class="user-detail-items">
                 <p><span class="item-property">Username:</span> {this.state.user.userName}</p>
                 <p><span class="item-property">Password:</span> {this.state.user.password}</p>
                 <p><span class="item-property">City:</span> {this.state.user.city}</p>
+                </div>
                 <Button onClick={this.handleToggledEditForm}>Edit User</Button>
                 <Button type = "danger" onClick={this.handleDeleteUser}>Delete User</Button>
             </div>

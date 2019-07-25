@@ -1,12 +1,10 @@
 /* Step 1 import React, { Component } and axios
  *
  */
-import { Button } from 'antd';
- import { Input } from 'antd';
+import { Button, Input, Select } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
-import { Select } from 'antd';
 const { Option } = Select;
 
 /* Step 2
@@ -155,7 +153,12 @@ export default class SingleRecyclingItem extends Component {
                         onChange={this.handleInputChange} 
                         value={this.state.recyclingItem.points}
                     /> */}
-                <input type="submit" value="Update Item" />
+                <Button
+                    type="primary"
+                    htmlType="submit"
+                >
+                    Update Item
+                </Button>
 
             </form>
             :

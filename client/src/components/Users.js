@@ -79,6 +79,7 @@ export default class Users extends Component {
                 <ul>
                     <li>
             <Link 
+                className="user-links"
                 to="/"
                 key={user._id} 
                 to={`/users/${user._id}/recyclingItems`}
@@ -170,7 +171,13 @@ export default class Users extends Component {
                     onChange={this.handleInputChange}
                     value={this.state.newUser.city}
                 /> */}
-                <input type="submit" value="Add User" />
+                
+                <Button
+                    type="primary"
+                    htmlType="submit"
+                >
+                    Add User
+                </Button>
             </form>
             :
             <div>

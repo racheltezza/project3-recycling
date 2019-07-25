@@ -71,12 +71,14 @@ a {
   display: flex;
   /* justify-content: flex-start; */
   margin: 10px;
+  font-size: 18px;
 }
 
 .to-profile-link {
   display: flex;
   /* justify-content: flex-end; */
   margin: 10px;
+  font-size: 18px;
 }
 
 .clearfix {
@@ -91,4 +93,30 @@ a {
 
 .clearfix::after {
   content: none;
+}
+
+label {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.ant-table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.ant-table-pagination.ant-pagination {
+  float: none;
+}
+
+.user-links {
+  font-size: 25px;
+}
+
+.ant-table {
+  font-size: 18px;
+}
+
+.user-detail-items {
+  font-size: 18px;
 }
