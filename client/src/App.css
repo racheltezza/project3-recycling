@@ -2,12 +2,20 @@
 @import './index.css';
 
 
-  .App {
+.App {
     text-align: center;
   }
 
 .App-link {
   color: #61dafb;
+}
+
+h1 {
+  font-family: 'Rubik Mono One', sans-serif;
+}
+
+h2 {
+  font-family: 'Rubik Mono One', sans-serif;
 }
 
 ul {
@@ -25,7 +33,7 @@ li {
 }
 
 .ant-list {
-  width: 50%;
+  width: 30%;
   border: 1px solid green;
   display: flex;
   background-color: #bac2be;
@@ -50,6 +58,10 @@ a {
 
 .ant-select-selection {
   margin: 20px 5px;
+}
+
+.item-detail {
+  font-size: 18px;
 }
 
 .item-property {
@@ -106,4 +118,8 @@ label {
 
 .user-detail-items {
   font-size: 18px;
+}
+
+.recycling-guide {
+  margin: 10px auto;
 }

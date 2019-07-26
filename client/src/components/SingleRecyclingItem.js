@@ -129,10 +129,10 @@ export default class SingleRecyclingItem extends Component {
                     <li>
                         <h1>{this.state.recyclingItem.name}</h1>
                     </li>
-                    <li>
+                    <li class="item-detail">
                         <span class="item-property">Type:</span> {this.state.recyclingItem.type}
                     </li>
-                    <li>
+                    <li class="item-detail">
                     <span class="item-property">Points:</span> {this.state.recyclingItem.points}
                     </li>
                 </ul>

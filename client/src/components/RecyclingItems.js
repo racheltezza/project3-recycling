@@ -190,11 +190,13 @@ export default class RecyclingItems extends Component {
                     <Link class="back-link" to='/'>Back to All Users</Link>
                     <Link class="to-profile-link" to={`/users/${this.props.match.params.userId}`}>View User Profile</Link>
                 </div>
-                <h1>My Recycled Items</h1>
+                <h1>MY RECYCLED ITEMS</h1>
                 
                 <Button  type= "primary" onClick={this.handleToggledNewForm}>Add Item to List</Button>
                 <Table columns={columnNames} dataSource={recyclingItemsList} pagination={false}/>
-                <h1>Recycling Guide</h1>
+                <div class="recycling-guide">
+                <Button type="link" href="https://search.earth911.com/?utm_source=earth911-header&utm_medium=top-navigation-menu&utm_campaign=top-nav-recycle-search-button">Where to Recycle</Button>
+                <h2>Recycling Guide</h2>
                 <List
                     itemLayout="horizontal"
                     dataSource={recyclablesData}
@@ -208,6 +210,7 @@ export default class RecyclingItems extends Component {
                     </List.Item>
                     )}
                  />
+                 </div>
             </div>
         )
     }

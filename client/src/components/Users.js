@@ -122,9 +122,10 @@ export default class Users extends Component {
             </form>
             :
             <div>
-                <h1>All Recyclers</h1>
-                {usersList}
+                <iframe src="https://giphy.com/embed/WsG6qMO8xvR2LT4DC4" width="180" height="162" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/HelloZack-upcycle-economie-circulaire-hellozack-WsG6qMO8xvR2LT4DC4">via GIPHY</a></p>
+                <h1>ALL RECYCLERS</h1>
                 <Button type="primary" onClick={this.handleToggledNewForm}>Create New User</Button>
+                {usersList}
             </div>
         )
     }
