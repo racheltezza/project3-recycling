@@ -196,6 +196,7 @@ export default class RecyclingItems extends Component {
                 <Table columns={columnNames} dataSource={recyclingItemsList} pagination={false}/>
                 <div class="recycling-guide">
                 <Button type="link" href="https://search.earth911.com/?utm_source=earth911-header&utm_medium=top-navigation-menu&utm_campaign=top-nav-recycle-search-button">Where to Recycle</Button>
+            
                 <h2>Recycling Guide</h2>
                 <List
                     itemLayout="horizontal"
