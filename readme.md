@@ -16,13 +16,7 @@
 
 
 #### Wireframes
-<img src="/images/wireframes/wf1.png" alt="wireframe" width="350"/>
-
-<img src="/images/wireframes/wf2.png" alt="wireframe" width="350"/>
-
-<img src="/images/wireframes/wf3.png" alt="wireframe" width="350"/>
-
-<img src="/images/wireframes/wf4.png" alt="wireframe" width="350"/>
+<img src="/images/wireframes/wf1.png" alt="wireframe" width="350"/> <img src="/images/wireframes/wf2.png" alt="wireframe" width="350"/> <img src="/images/wireframes/wf3.png" alt="wireframe" width="350"/> <img src="/images/wireframes/wf4.png" alt="wireframe" width="350"/>
 
 #### ERD
 <img src="/images/wireframes/erd.png" alt="wireframe" width="350"/>
