@@ -1,35 +1,18 @@
-/* Step 1 import React, { Component } and axios
- *
- */
+
 import { Button, Input, Select } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 const { Option } = Select;
 
-/* Step 2
- * Rename this class to reflect the component being created
- *
- */
 export default class SingleRecyclingItem extends Component {
 
-    /* Step 3
-    * Create a state for the component to store view data
-    *
-    */
     state = {
         recyclingItem: {},
         isEditFormShowing: false,
         redirectToList: false
     }
 
-    /* Step 4
-    * Use componentDidMount to retrieve any data to display
-    *   Here you can make calls to your local express server
-    *   or to an external API
-    *   setState can be run here as well
-    *   -REMINDER remember `setState` it is an async function
-    */
     componentDidMount() {
         axios.get(`/api/users/${this.props.match.params.userId}/recyclingItems/${this.props.match.params.itemId}`)
             .then((res) => {
@@ -80,12 +63,6 @@ export default class SingleRecyclingItem extends Component {
         })
     }
 
-    /* Step 5
-    *  The render function manages what is shown in the browser
-    *  TODO: delete the jsx returned
-    *   and replace it with your own custom jsx template
-    *
-    */
     render() {
         if(this.state.redirectToList) {
             return <Redirect to={`/users/${this.props.match.params.userId}/recyclingItems`} />
@@ -95,7 +72,7 @@ export default class SingleRecyclingItem extends Component {
             ?
             <form onSubmit={this.handleEditSubmit}>
                 <div className="example-input">
-                <label htmlFor="item-name">Item Name</label>
+                    <label htmlFor="item-name">Item Name</label>
                     <Input 
                         size="large"
                         type="text" 
@@ -137,22 +114,6 @@ export default class SingleRecyclingItem extends Component {
                             <Option value="5">5</Option>
                         </Select>
                     </div>
-                {/* <label htmlFor="item-type">Item Type</label>
-                    <input 
-                        type="text" 
-                        id="item-type" 
-                        name="type" 
-                        onChange={this.handleInputChange} 
-                        value={this.state.recyclingItem.type}
-                    />
-                <label htmlFor="item-points">Item Points</label>
-                    <input 
-                        type="text" 
-                        id="item-points" 
-                        name="points" 
-                        onChange={this.handleInputChange} 
-                        value={this.state.recyclingItem.points}
-                    /> */}
                 <Button
                     type="primary"
                     htmlType="submit"
@@ -163,7 +124,6 @@ export default class SingleRecyclingItem extends Component {
             </form>
             :
             <div>
-                {/* Accessing the value of message from the state object */}
                 <a class="back-link" href={`/users/${this.props.match.params.userId}/recyclingItems`}>Back to Recycling List</a>
                 <ul>
                     <li>

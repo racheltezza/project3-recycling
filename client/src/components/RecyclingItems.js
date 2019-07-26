@@ -1,6 +1,4 @@
-/* Step 1 import React, { Component } and axios
- *
- */
+
 import { Button, Table, List, Avatar, Input, Select } from 'antd';
 import React, { Component } from 'react'
 import axios from 'axios'
@@ -37,16 +35,9 @@ const recyclablesData = [
 ];
 
 
-/* Step 2
- * Rename this class to reflect the component being created
- *
- */
 export default class RecyclingItems extends Component {
 
-    /* Step 3
-    * Create a state for the component to store view data
-    *
-    */
+
     state = {
         recyclingItems: [],
         isNewFormShowing: false,
@@ -57,13 +48,6 @@ export default class RecyclingItems extends Component {
         }
     }
 
-    /* Step 4
-    * Use componentDidMount to retrieve any data to display
-    *   Here you can make calls to your local express server
-    *   or to an external API
-    *   setState can be run here as well
-    *   -REMINDER remember `setState` it is an async function
-    */
     componentDidMount() {
         this.getAllItems()
     }
@@ -112,13 +96,6 @@ export default class RecyclingItems extends Component {
         })
     }
     
-
-    /* Step 5
-    *  The render function manages what is shown in the browser
-    *  TODO: delete the jsx returned
-    *   and replace it with your own custom jsx template
-    *
-    */
     render() {
         const columnNames = [
             {
@@ -137,28 +114,10 @@ export default class RecyclingItems extends Component {
                 dataIndex: 'points',
                 key: 'points',
             },
-            // {
-            //     title: 'More Info',
-            //     dataIndex: 'moreInfo',
-            //     key: 'moreInfo',
-            //     render: text => <Link to={`/users/${this.props.match.params.userId}/recyclingItems/${item._id}`}>{text}</Link>
-            // }
         ]
+
         let recyclingItemsList = this.state.recyclingItems.map((item) => {
             return(
-                // <Descriptions layout="vertical" size="small" bordered>
-                // <Descriptions.Item label="Product">
-                //     <Link 
-                //         to="/"
-                //         key={item._id} 
-                //         to={`/users/${this.props.match.params.userId}/recyclingItems/${item._id}`}
-                //     >
-                //         {item.name}
-                //     </Link>
-                // </Descriptions.Item>
-                // <Descriptions.Item label="Type">{item.type}</Descriptions.Item>
-                // <Descriptions.Item label="Points">{item.points}</Descriptions.Item>
-                // </Descriptions>
                     {
                         name: {
                             name: item.name,
@@ -168,31 +127,21 @@ export default class RecyclingItems extends Component {
                         points: item.points,
                         moreInfo: item._id
                     }
-                //     <Link 
-                //     to="/"
-                //     key={item._id} 
-                //     to={`/users/${this.props.match.params.userId}/recyclingItems/${item._id}`}
-                // >
-                //     {item.name}
-                //     </Link>
-                //         {item.type}
-                //         {item.points}
             )
         })
-        console.log(recyclingItemsList)
+
         return (
             this.state.isNewFormShowing
             ?
             <form onSubmit={this.handleNewItemSubmit}>
                 <div className="example-input">
-                <label htmlFor="new-item-name">Item Name</label>
+                    <label htmlFor="new-item-name">Item Name</label>
                     <Input 
                         size="large"
                         type="text" 
                         id="new-item-name" 
                         name="name" 
-                        onChange={this.handleInputChange} 
-                        // value={this.state.newItem.name}
+                        onChange={this.handleInputChange}
                     />
                 </div>
                 <div>
@@ -202,8 +151,7 @@ export default class RecyclingItems extends Component {
                             defaultValue="type"
                             name="type"
                             id="new-item-type"
-                            onChange={this.handleItemTypeChange} 
-                            // value={this.state.newItem.type}
+                            onChange={this.handleItemTypeChange}
                         >
                             <Option value ="paper">Paper</Option>
                             <Option value ="cardboard">Cardboard</Option>
@@ -219,8 +167,7 @@ export default class RecyclingItems extends Component {
                             defaultValue="points"
                             name="points" 
                             id="new-item-points"
-                            onChange={this.handleItemPointsChange} 
-                            // value={this.state.newItem.points}
+                            onChange={this.handleItemPointsChange}
                         >
                             <Option value ="1">1</Option>
                             <Option value ="2">2</Option>
@@ -240,8 +187,8 @@ export default class RecyclingItems extends Component {
             :
             <div>
                 <div class="clearfix">
-                <Link class="back-link" to='/'>Back to All Users</Link>
-                <Link class="to-profile-link" to={`/users/${this.props.match.params.userId}`}>View User Profile</Link>
+                    <Link class="back-link" to='/'>Back to All Users</Link>
+                    <Link class="to-profile-link" to={`/users/${this.props.match.params.userId}`}>View User Profile</Link>
                 </div>
                 <h1>My Recycled Items</h1>
                 
