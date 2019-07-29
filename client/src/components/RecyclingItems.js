@@ -1,5 +1,6 @@
 
 import { Button, Table, List, Avatar, Input, Select } from 'antd';
+import recyclingGuide from 'images/wireframes/recyclingGuide.png'
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
@@ -133,6 +134,7 @@ export default class RecyclingItems extends Component {
         return (
             this.state.isNewFormShowing
             ?
+            
             <form onSubmit={this.handleNewItemSubmit}>
                 <div className="example-input">
                     <label htmlFor="new-item-name">Item Name</label>
