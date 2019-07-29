@@ -1,6 +1,6 @@
 
 import { Button, Table, List, Avatar, Input, Select } from 'antd';
-import recyclingGuide from 'images/wireframes/recyclingGuide.png'
+import RecyclingGuide from '../images/recyclingGuide.png'
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
@@ -132,9 +132,10 @@ export default class RecyclingItems extends Component {
         })
 
         return (
+           
             this.state.isNewFormShowing
             ?
-            
+            <div>
             <form onSubmit={this.handleNewItemSubmit}>
                 <div className="example-input">
                     <label htmlFor="new-item-name">Item Name</label>
@@ -186,6 +187,8 @@ export default class RecyclingItems extends Component {
                     </Button>
             
             </form>
+            <img src={RecyclingGuide} alt="recyclingGuide" className="recycling-guide-png"/>
+            </div>
             :
             <div>
                 <div class="clearfix">
@@ -215,6 +218,7 @@ export default class RecyclingItems extends Component {
                  />
                  </div>
             </div>
+           
         )
     }
 }
